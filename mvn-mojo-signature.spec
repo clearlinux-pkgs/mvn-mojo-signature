@@ -6,7 +6,7 @@
 #
 Name     : mvn-mojo-signature
 Version  : 1.0
-Release  : 1
+Release  : 2
 URL      : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0-source-release.zip
 Source0  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0-source-release.zip
 Source1  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.pom
