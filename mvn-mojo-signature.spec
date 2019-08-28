@@ -6,16 +6,20 @@
 #
 Name     : mvn-mojo-signature
 Version  : 1.0
-Release  : 2
+Release  : 3
 URL      : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0-source-release.zip
 Source0  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0-source-release.zip
-Source1  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.pom
-Source2  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.signature
-Source99 : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0-source-release.zip.asc
+Source1  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java15/1.0/java15-1.0.pom
+Source2  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java15/1.0/java15-1.0.signature
+Source3  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.pom
+Source4  : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0.signature
+Source5 : https://repo1.maven.org/maven2/org/codehaus/mojo/signature/java17/1.0/java17-1.0-source-release.zip.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
 Requires: mvn-mojo-signature-data = %{version}-%{release}
+BuildRequires : apache-maven
+BuildRequires : buildreq-mvn
 
 %description
 No detailed description available
@@ -29,15 +33,22 @@ data components for the mvn-mojo-signature package.
 
 
 %prep
+%setup -q -n java17-1.0
 
 %build
 
 %install
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java15/1.0
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java15/1.0/java15-1.0.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java15/1.0
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java15/1.0/java15-1.0.signature
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0/java17-1.0.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0/java17-1.0.signature
 
 
 %files
@@ -45,5 +56,7 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/codehaus/mojo/signa
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java15/1.0/java15-1.0.pom
+/usr/share/java/.m2/repository/org/codehaus/mojo/signature/java15/1.0/java15-1.0.signature
 /usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0/java17-1.0.pom
 /usr/share/java/.m2/repository/org/codehaus/mojo/signature/java17/1.0/java17-1.0.signature
